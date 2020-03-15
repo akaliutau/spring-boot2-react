@@ -10,7 +10,7 @@ In the case of PostgresSQL as the main database of service create a database jou
 
 ```
 psql -U postgres
-create database journaldb
+create database journaldb;
 ```
 
 List all databases to see a newly created database on the list:

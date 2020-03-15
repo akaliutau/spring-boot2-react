@@ -44,8 +44,8 @@ public class JournalApp {
 			participantRepository.save(participant2);
 
 			Date now = Date.valueOf(LocalDate.now());
-			repository.save(new Task( "wake up", "Not started", "discription", now, participant1));
-			repository.save(new Task( "check post", "Not started", "discription", now, participant2));
+			repository.save(new Task( "wake up", "Not started", "description", now, participant1));
+			repository.save(new Task( "check post", "Not started", "description", now, participant2));
 			
 			// note: passwords are BCrypted
 			// user/user
