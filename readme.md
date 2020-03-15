@@ -1,16 +1,16 @@
 About
 ==================
 
-This is a simple Spring Boot based web service with responsive UI built on the top of React.
+This is a simple Spring Boot project designed as a web service with responsive UI built on the top of React.
 
 DB configuration
 ==================
 
-In the case of PostgreSQL as the main database of service create a database diarydb first:
+In the case of PostgresSQL as the main database of service create a database journaldb first:
 
 ```
 psql -U postgres
-create database diarydb
+create database journaldb
 ```
 
 List all databases to see a newly created database on the list:
@@ -22,7 +22,7 @@ List all databases to see a newly created database on the list:
 To connect to a database use the command:
 
 ```
-\c diarydb
+\c journaldb
 ```
 
 To see the table's scheme use the command:

@@ -39,18 +39,14 @@ public class LoginFilter extends AbstractAuthenticationProcessingFilter {
 //		AccountCredentials creds = new Gson().fromJson(reader, AccountCredentials.class);
 		AccountCredentials creds = new ObjectMapper()
 		        .readValue(req.getInputStream(), AccountCredentials.class);
-		Gson g = new Gson();
-		System.out.println("creds="+g.toJson(creds));
 		Authentication a = getAuthenticationManager().authenticate(new UsernamePasswordAuthenticationToken(creds.getUsername(),
 				creds.getPassword(), Collections.emptyList()));
-		System.out.println("Authentication="+g.toJson(a));
 		return a;
 	}
 
 	@Override
 	protected void successfulAuthentication(HttpServletRequest req, HttpServletResponse res, FilterChain chain,
 			Authentication auth) throws IOException, ServletException {
-		System.out.println("=================== successfulAuthentication=");
 		AuthenticationService.addToken(res, auth.getName());
 	}
 }
