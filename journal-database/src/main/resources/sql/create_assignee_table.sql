@@ -1,0 +1,5 @@
+CREATE TABLE assignee (
+   id BIGINT(19) PRIMARY KEY NOT NULL,
+   firstname VARCHAR (255) NOT NULL,
+   lastname VARCHAR (255) NOT NULL
+);
