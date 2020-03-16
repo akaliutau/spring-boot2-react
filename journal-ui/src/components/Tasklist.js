@@ -51,7 +51,7 @@ class Tasklist extends Component {
         })
     };
 
-    // Delete car
+    // Delete Task
     onDelClick = (link) => {
         const token = sessionStorage.getItem("jwt");
         fetch(link,
@@ -60,14 +60,15 @@ class Tasklist extends Component {
                 headers: {'Authorization': token}
             }
         )
-            .then(res => {
-                this.setState({open: true, message: 'Task deleted'});
-                this.fetchTasks();
-            })
-            .catch(err => {
-                this.setState({open: true, message: 'Error when deleting'});
-                console.error(err)
-            })
+
+        .then(res => {
+            this.setState({open: true, message: 'Task deleted'});
+            this.fetchTasks();
+        })
+        .catch(err => {
+            this.setState({open: true, message: 'Error when deleting'});
+            console.error(err)
+        })
     };
 
     // Add new task
@@ -115,11 +116,12 @@ class Tasklist extends Component {
                 onBlur={e => {
                     const data = [...this.state.tasks];
                     data[cellInfo.index][cellInfo.column.id] = e.target.innerHTML;
-                    this.setState({Tasks: data});
+                    this.setState({tasks: data});
                 }}
                 dangerouslySetInnerHTML={{
-                    __html: this.state.tasks[cellInfo.index][cellInfo.column.id]
+                    __html: this.state.tasks[cellInfo.index] ? this.state.tasks[cellInfo.index][cellInfo.column.id]:''
                 }}
+
             />
         );
     };

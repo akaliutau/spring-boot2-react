@@ -6,7 +6,7 @@ import TextField from '@material-ui/core/TextField';
 class AddTask extends React.Component {
   constructor(props) {
       super(props);
-      this.btnRef = React.createRef();
+      this.addTaskRef = React.createRef();
       this.state = {name: '', status: '',  createdDate: '', description: ''};
   }
 
@@ -22,12 +22,12 @@ class AddTask extends React.Component {
       var newTask = {name: this.state.name, status: this.state.status,
           createdDate: this.state.createdDate, description: this.state.description};
       this.props.addTask(newTask);
-      this.btnRef.addDialog.hide();
+      this.refs.addDialog.hide();
   }
 
   cancelSubmit = (event) => {
     event.preventDefault();
-      this.btnRef.addDialog.hide();
+    this.refs.addDialog.hide();
   }
   
   render() {
@@ -36,7 +36,7 @@ class AddTask extends React.Component {
         <SkyLight hideOnOverlayClicked ref="addDialog">
           <h3>New task</h3>
           <form>
-            <TextField label="Name" placeholder="name"  name="name" onChange={this.handleChange}/><br/>
+            <TextField label="Name" placeholder="name" name="name" onChange={this.handleChange}/><br/>
             <TextField label="Status" placeholder="status" name="status" onChange={this.handleChange}/><br/>
             <TextField label="Created" placeholder="created date" name="createdDate" onChange={this.handleChange}/><br/>
             <TextField label="Description" placeholder="description" name="description" onChange={this.handleChange}/><br/>
