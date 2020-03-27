@@ -50,3 +50,24 @@ Body in post request must contain username/password pair
 After successful  authorization service will return token in Authorization header. 
 After that we can call the other RESTful service endpoints by sending the JWT token back in Authorization header.
 
+Starting
+==================
+
+Start webservice:
+
+```
+java -jar <path to jar file>
+```
+
+The service will start on localhost:8082
+
+Start UI:
+
+```
+npm start
+```
+ 
+The service will start on localhost:3000
+
+
+
